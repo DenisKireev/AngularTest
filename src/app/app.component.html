@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!--The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -19,3 +19,18 @@
 </ul>
 
 <router-outlet></router-outlet>
+We've wrapped everything in a container id. Then, you will notice a custom HTML element called app-sidebar. What's that?
+
+Well, when the CLI generated the sidebar component, it made the component's selector value app-sidebar. Don't believe me? Check out /src/app/sidebar/sidebar.component.ts -- It's right there in the component decorator! That's how you embed a component inside of another component. Now, anything defined in that component's HTML, will be displayed where <app-sidebar></app-sidebar> is defined.
+
+Another very important element is the router-outlet. This was added by the CLI when we added the --routing flag (it also generated a routing file in /src/app.
+
+This element defines where any components defined by their routes will be displayed.
+-->
+<div id="container">
+  <app-sidebar></app-sidebar>
+
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
